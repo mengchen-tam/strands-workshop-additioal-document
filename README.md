@@ -71,6 +71,7 @@ Host workshop
 
 ```bash
 npm install aws-cdk-lib@2.178.2 --save
+npm audit fix --force
 ```
 
 这将安装兼容的 CDK 库版本，避免版本不匹配问题。
