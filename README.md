@@ -67,11 +67,29 @@ Host workshop
 
 ## 第二部分：依赖安装故障排除
 
-如果在安装 AWS CDK 依赖时遇到版本冲突或其他错误，使用以下命令安装特定版本：
+如果在构建CDK的步骤时候遇到版本冲突或其他错误，这样的报错：
+```bash
+=========================================
+步骤 3: 准备 CDK 环境
+=========================================
+安装 CDK 依赖...
+构建 TypeScript...
+
+> strands-mcp-cdk@1.0.0 build
+> tsc
+
+检查 CDK Bootstrap...
+Bootstrap CDK 环境...
+#.......(中间一段ACKKNOWLEDGE可以忽略）
+If you don’t want to see a notice anymore, use "cdk acknowledge <id>". For example, "cdk acknowledge 34892".
+This CDK CLI is not compatible with the CDK library used by your application. Please upgrade the CLI to the latest version.
+(Cloud assembly schema version mismatch: Maximum schema version supported is 39.x.x, but found 48.0.0. You need at least CLI version 2.1029.1 to read this manifest.)
+```
+使用以下命令安装特定版本：
 
 ```bash
 npm install aws-cdk-lib@2.178.2 --save
-npm audit fix --force
+bash cdk-build-and-deploy.sh
 ```
 
 这将安装兼容的 CDK 库版本，避免版本不匹配问题。
@@ -111,7 +129,3 @@ npm audit fix --force
 ### MCP 配置问题
 - 确保 Node.js 和 npm 已正确安装
 - 检查网络连接和 API 密钥有效性
-
-## 支持
-
-如遇到其他问题，请参考 [AWS Workshop 文档](https://catalog.us-east-1.prod.workshops.aws/workshops/d674f40f-d636-4654-9322-04dafc7cc63e/zh-CN/30-lab-3/lab-3-1/3-1-2-cdk) 或联系技术支持。
